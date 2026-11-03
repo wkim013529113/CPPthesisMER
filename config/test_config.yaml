@@ -1,0 +1,16 @@
+defaults:
+  - base_config
+  - _self_
+
+batch_size: 8
+devices: [0]
+
+trainer:
+  devices: ${devices}
+  accelerator: 'gpu'
+
+checkpoint_latest: True
+multitask: False
+dataset_type: "mood"
+checkpoint: "tb_logs/train_audio_classification/version_1/checkpoints/14-0.0679.ckpt"
+

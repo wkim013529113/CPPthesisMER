@@ -1,0 +1,4 @@
+A,B,question,metric,seeds,diff,ci_lo,ci_hi,p,ci_excludes_0
+D4,D3,Rhyme beyond XLM-R on the official (artist-overlapping) split,valence R²,3,-0.007999516955852362,-0.020231918139868358,0.0038325611160909233,0.1934,False
+D4,D3,Rhyme beyond XLM-R on the official (artist-overlapping) split,arousal R²,3,0.0008603852243673401,-0.013214808073878155,0.015470238129874688,0.9072,False
+D4,D3,Rhyme beyond XLM-R on the official (artist-overlapping) split,combined R²,3,-0.0035695658657425113,-0.012576968163211138,0.005495066072530691,0.4402,False

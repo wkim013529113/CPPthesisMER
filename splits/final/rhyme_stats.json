@@ -1,0 +1,21 @@
+{
+  "columns": [
+    "end_rhyme_density",
+    "internal_rhyme_density",
+    "rhymes_per_line",
+    "cmudict_coverage"
+  ],
+  "mean": [
+    0.18566343378275632,
+    0.03906750541313418,
+    0.47024208605156415,
+    0.9824313542246819
+  ],
+  "std": [
+    0.16048875373046795,
+    0.046662348721418896,
+    0.44920849407056856,
+    0.029745839825056124
+  ],
+  "source": "MERGE tvt_artist_70_15_15 train split (1400 songs)"
+}

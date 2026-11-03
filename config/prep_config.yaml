@@ -1,0 +1,16 @@
+device_id: 0
+
+is_split: True
+segment_duration: 30
+
+dataset:
+  input_dir: '/data03/home/wkim/Music2Emotion/dataset/jamendo/wav/00'
+  output_dir: '/data03/home/wkim/Music2Emotion/dataset/jamendo/mert_30s'
+
+model: 
+  name: 'm-a-p/MERT-v1-95M'
+  sr: 24000
+
+
+
+

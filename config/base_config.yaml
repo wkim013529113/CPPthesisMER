@@ -1,0 +1,100 @@
+version: "1.34"
+
+# --- rerun-v2 reproducibility ---
+seed: 0                      # override per run: seed=0/1/2
+run_name: null               # e.g. C4_seed0 -> tb_logs/train_audio_classification/C4_seed0
+split_dir: splits/final      # frozen ID lists from tools/make_splits.py
+
+lr: 1e-4
+log_step: 1
+split: 0
+batch_size: 8
+sr: 16000
+
+datasets:
+  - merge
+# smoke-test config: merge only. Previous run list:
+#  - jamendo
+#  - globalmood
+
+model:
+  encoder: "MERT"
+  layers:
+    - 5
+    - 6
+  classifier: "linear-attn-ck"
+  # - linear
+  # - linear-attn-ck
+  # - linear-mt-attn-ck
+
+  # --- rerun-v2 rhyme-slot controls (4-dim slot kept in every lyrics run) ---
+  rhyme_norm: true      # z-score slot with train-split stats
+  rhyme_mode: real      # real | zeros | permute | noise | surface | keep<idx>, e.g. keep012, keep3
+  control_seed: 1234    # fixed across training seeds: permutation / noise draw
+
+  kd: False
+  kd_weight: 0.8
+  kd_temperature: 1
+  lr: 1e-4
+
+dataset:
+  jamendo:
+    root: './dataset/jamendo'
+    subset: 'moodtheme'
+    batch_size: 8
+    output_size : 56
+    split: 0
+    segment_type: "all" # [all,f10s,f30s,10s,30s]
+    num_workers: 4
+  deam:
+    root: './dataset/deam'
+    batch_size: 8
+    output_size : 2 
+    segment_type: "all" # [all,f10s,f30s,10s,30s]
+    num_workers: 4
+  pmemo:
+    root: './dataset/pmemo'
+    batch_size: 8
+    output_size : 2 
+    segment_type: "all" # [all,f10s,f30s,10s,30s]
+    num_workers: 4
+  emomusic:
+    root: './dataset/emomusic'
+    batch_size: 8
+    output_size : 2 
+    segment_type: "all" # [all,f10s,f30s,10s,30s]
+    num_workers: 4
+
+  globalmood:
+    root: './dataset/globalmood'
+    batch_size: 8
+    output_size: 100
+    segment_type: "all"
+    num_workers: 4
+  globalmood_va:
+    root: './dataset/globalmood'
+    batch_size: 8
+    output_size: 2
+    segment_type: "all"
+    num_workers: 4
+  merge:
+    root: './dataset/merge/MERGE_Bimodal_Balanced'
+    batch_size: 8
+    output_size: 2
+    segment_type: "all"
+    num_workers: 4
+    split_folder: 'tvt_artist_70_15_15'          # artist-disjoint (rerun-v2); legacy: tvt_70_15_15
+    rhyme_stats: 'splits/final/rhyme_stats.json'  # train-split mean/std for z-scoring
+# --------------------------------------- #
+genre_class_size: 87
+mood_class_size: 56
+instr_class_size: 40
+dac_latents_size: 72
+dac_rvq_size: 9
+# --------------------------------------- #
+
+checkpoint_pmemo: "tb_logs/best/P.ckpt"
+checkpoint_deam: "tb_logs/best/D.ckpt"
+checkpoint_emomusic: "tb_logs/best/E.ckpt"
+checkpoint_jamendo: "tb_logs/best/J.ckpt"
+

@@ -1,0 +1,7 @@
+run_name	config	seed	datasets	lyrics	rhyme_mode	tier	extra
+D3_seed0	D3	0	[jamendo,globalmood,merge]	1	zeros	diagnostic	dataset.merge.split_folder=tvt_70_15_15 dataset.merge.rhyme_stats=splits/rhyme_stats.json
+D3_seed1	D3	1	[jamendo,globalmood,merge]	1	zeros	diagnostic	dataset.merge.split_folder=tvt_70_15_15 dataset.merge.rhyme_stats=splits/rhyme_stats.json
+D3_seed2	D3	2	[jamendo,globalmood,merge]	1	zeros	diagnostic	dataset.merge.split_folder=tvt_70_15_15 dataset.merge.rhyme_stats=splits/rhyme_stats.json
+D4_seed0	D4	0	[jamendo,globalmood,merge]	1	real	diagnostic	dataset.merge.split_folder=tvt_70_15_15 dataset.merge.rhyme_stats=splits/rhyme_stats.json
+D4_seed1	D4	1	[jamendo,globalmood,merge]	1	real	diagnostic	dataset.merge.split_folder=tvt_70_15_15 dataset.merge.rhyme_stats=splits/rhyme_stats.json
+D4_seed2	D4	2	[jamendo,globalmood,merge]	1	real	diagnostic	dataset.merge.split_folder=tvt_70_15_15 dataset.merge.rhyme_stats=splits/rhyme_stats.json
